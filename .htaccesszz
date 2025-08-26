@@ -1,0 +1,45 @@
+RewriteEngine On
+
+
+#index ignore hanya menghilangkan file file yg di folder, ketika di akses dari url
+IndexIgnore */*
+
+#menghentikan akses folder dari url baik front end dan back end
+Options All -Indexes
+
+#error_404 berguna untuk redirect ke halaman error 404.php ketika memaksi akses struktur folder dari url
+ErrorDocument 403 /spkmfeb/admin/error/error_404.php
+
+#home
+RewriteRule ^home\.html$ ?page=home [L]
+RewriteRule ^login\.html$ login.php [L]
+RewriteRule ^logout\.html$ logout.php [L]
+
+#admin
+RewriteRule ^admin\.html$ ?page=pages/admin/index [L]
+RewriteRule ^hapus-admin-([0-9]+)\.html$ ?page=pages/admin/hapusadmin&idhapus=$1 [L]
+
+
+#kriteria
+RewriteRule ^kriteria\.html$ ?page=pages/kriteria/index [L]
+#kriteria
+RewriteRule ^laporan\.html$ ?page=pages/laporan/index [L]
+
+
+#siswa
+RewriteRule ^penduduk\.html$ ?page=pages/penduduk/index [L]
+RewriteRule ^hapus-penduduk-([0-9]+)\.html$ ?page=pages/penduduk/hapuspenduduk&id=$1 [L]
+
+
+#penialain
+RewriteRule ^penilaian\.html$ ?page=pages/penilaian/index [L]
+RewriteRule ^tambah\.html$ ?page=pages/penilaian/tambah_penilaian [L]
+RewriteRule ^hapus-nilai-([0-9]+)\.html$ ?page=pages/penilaian/hapusnilai&idhapus=$1 [L]
+
+#perhitungan
+RewriteRule ^perhitungan\.html$ ?page=pages/perhitungan/index [L]
+RewriteRule ^hapus-nilai-([0-9]+)\.html$ ?page=pages/penilaian/hapusnilai&idhapus=$1 [L]
+
+#BERITA
+RewriteRule ^berita\.html$ ?page=pages/berita/index [L]
+RewriteRule ^hapus-berita-([0-9]+)\.html$ ?page=pages/berita/hapusBerita&id=$1 [L]
